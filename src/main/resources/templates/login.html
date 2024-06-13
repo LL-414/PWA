@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login and Register</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>Login or Register</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/gaming">Gaming News</a></li>
+      <li><a href="/tech">Tech News</a></li>
+      <li><a href="/profile">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div>
+    <h2>Login</h2>
+    <form th:action="@{/login}" th:object="${user}" method="post">
+      <div>
+        <label>Username:
+          <input type="text" th:field="*{username}" />
+        </label>
+      </div>
+      <div>
+        <label>Password:
+          <input type="password" th:field="*{password}" />
+        </label>
+      </div>
+      <div>
+        <button type="submit">Login</button>
+      </div>
+    </form>
+    <p th:text="${loginMessage}"></p>
+  </div>
+
+  <div>
+    <h2>Register</h2>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+      <div>
+        <label>Username:
+          <input type="text" th:field="*{username}" />
+        </label>
+      </div>
+      <div>
+        <label>Password:
+          <input type="password" th:field="*{password}" />
+        </label>
+      </div>
+      <div>
+        <button type="submit">Register</button>
+      </div>
+    </form>
+    <p th:text="${registerMessage}"></p>
+  </div>
+
+  <p th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></p>
+</main>
+
+<footer>
+  <p>&copy; 2024 Our Blog. All rights reserved.</p>
+</footer>
+</body>
+</html>

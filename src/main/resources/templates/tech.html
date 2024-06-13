@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tech News</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>Tech News</h1>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/gaming">Gaming News</a></li>
+      <li><a href="/tech">Tech News</a></li>
+      <li><a href="/profile">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="tech-news">
+    <h2>All Tech News</h2>
+    <div class="blog-grid">
+      <div th:each="blog : ${techBlogs}">
+        <h3 th:text="${blog.blogTitle}">Blog Title</h3>
+        <p th:text="${blog.blogSubtitle}">Subtitle</p>
+        <p th:text="${blog.blogText}">Blog content...</p>
+        <img th:src="@{${blog.imgPath}}" alt="Blog Image">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Our Blog. All rights reserved.</p>
+</footer>
+</body>
+</html>
